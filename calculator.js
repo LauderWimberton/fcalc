@@ -19,7 +19,7 @@ function process_expr(expr) {
             let numer = parseInt(tokens[i - 1]);
             let denom = parseInt(tokens[i + 1]);
 
-            let simp_frac = simplifyFraction(numer, denom);
+            let simp_frac = simp_calc(numer, denom);
 
             simp_expre.pop();
             simp_expre.push(simp_frac);
@@ -32,7 +32,7 @@ function process_expr(expr) {
     return simp_expre.join(' ');
 }
 
-function simplifyFraction(numer, denom) {
+function simp_calc(numer, denom) {
     const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
     let divisor = gcd(numer, denom);
 
